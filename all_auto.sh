@@ -1,8 +1,14 @@
 #!/bin/bash
 
-./fetch_new_channel_form_home_page.sh
-./unique_subscribed.sh
-./covert_subscribed_2_id.sh
-./clean.sh query2
+if [ -n "$1" ]
+then
+./fetch_new_channel_form_home_page.sh subscribed
+./unique.sh subscribed
+./covert_subscribed_2_id.sh subscribed query2
+./clean.sh query query2
+else
+./clean.sh query
+fi
 ./download.sh < query
-./del.sh
+./del.sh error.log
+./clean.sh query
