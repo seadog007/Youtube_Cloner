@@ -1,12 +1,16 @@
 #!/bin/bash
 root=`pwd`
+file=$1
+
 function finish {
+  echo "Cleaning up..."
   cd "$root"
-  rm -r tmp/*
-  ./clean.sh
+  rm -rf tmp/*
+  ./clean.sh "$file"
 }
 trap finish EXIT
 
+[ -z "$1" ] && echo "Arg requeired" && exit 1
 cd tmp
 while read line
 do
@@ -46,4 +50,4 @@ do
   else
     echo "Already exist in the drive"
   fi
-done
+done < "../$file"
