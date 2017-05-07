@@ -10,7 +10,7 @@ function finish {
 }
 trap finish EXIT
 
-[ -z "$1" ] && echo "Arg requeired" && exit 1
+[ -z "$1" ] && echo "Usage: ./download.sh <query>" && exit 1
 cd tmp
 while read line
 do
