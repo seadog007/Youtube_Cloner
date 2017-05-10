@@ -2,7 +2,7 @@
 
 if [ -n "$1" ]
 then
-./fetch_new_channel_form_home_page.sh subscribed
+./fetch_new_channels_from_home_page.sh subscribed
 ./unique.sh subscribed
 ./covert_subscribed_2_id.sh subscribed query2
 ./clean.sh query query2
