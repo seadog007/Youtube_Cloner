@@ -21,7 +21,9 @@ do
     mkdir $d
     cd $d
     youtube-dl "https://www.youtube.com/watch?v=$line" --all-formats --all-subs >> /dev/null
-    if [ $? -eq 0 ]
+    x=$?
+    youtube-dl "https://www.youtube.com/watch?v=$line" -o "%(title)s-%(id)s_%(format)s.%(ext)s" >> /dev/null
+    if [ $? -eq 0 ] && [ $x -eq 0 ]
     then
       cd ..
       folder=''
