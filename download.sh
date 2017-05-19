@@ -20,25 +20,15 @@ do
     d=`date +%s`
     mkdir $d
     cd $d
-    youtube-dl "https://www.youtube.com/watch?v=$line" --all-formats --all-subs >> /dev/null
+    youtube-dl "https://www.youtube.com/watch?v=$line" -o "%(title)s-%(id)s_%(format)s.%(ext)s" >> /dev/null
     if [ $? -eq 0 ]
     then
       cd ..
-      folder=''
-      folder=`gdrive mkdir -p \`cat ../index.json | jq -r '."'${line:0:1}'"."'${line:1:1}'"'\` $line | sed -e "s/Directory\ //" -e "s/\ created//"` && gdrive sync upload $d $folder >> /dev/null
+      folder=`awk '{if($1 == "'$line'"){print $6}}' ../old_run.log`
+      gdrive upload -p $folder "`find $d -type f | head -n1`">> /dev/null
       if [ $? -ne 0 ]
       then
 	echo $folder >> ../error.log
-        gdrive delete -r $folder
-        sleep 1
-        gdrive delete -r $folder
-        sleep 1
-        gdrive delete -r $folder
-        sleep 1
-        gdrive delete -r $folder
-        sleep 1
-        gdrive delete -r $folder
-        sleep 1
       else
         echo "$line success uploaded, folder id: $folder" >> ../run.log
       fi
