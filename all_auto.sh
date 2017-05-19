@@ -10,5 +10,4 @@ else
 ./clean.sh query
 fi
 ./download.sh query
-./del.sh error.log
 ./clean.sh query
