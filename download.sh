@@ -25,7 +25,7 @@ do
     then
       cd ..
       folder=`awk '{if($1 == "'$line'"){print $6}}' ../old_run.log`
-      gdrive upload -p $folder "`find $d -type f | head -n1`">> /dev/null
+      gdrive sync upload $d $folder>> /dev/null
       if [ $? -ne 0 ]
       then
 	echo $folder >> ../error.log
