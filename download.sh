@@ -22,7 +22,7 @@ do
     cd $d
     youtube-dl "https://www.youtube.com/watch?v=$line" --all-formats --all-subs >> /dev/null
     x=$?
-    youtube-dl "https://www.youtube.com/watch?v=$line" -o "%(title)s-%(id)s_%(format)s.%(ext)s" >> /dev/null
+    [ $x -eq 0 ] && youtube-dl "https://www.youtube.com/watch?v=$line" -o "%(title)s-%(id)s_%(format)s.%(ext)s" >> /dev/null
     if [ $? -eq 0 ] && [ $x -eq 0 ]
     then
       cd ..
