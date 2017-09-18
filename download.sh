@@ -8,7 +8,7 @@ function finish {
   rm -rf tmp/*
   ./clean.sh "$file"
 }
-trap finish EXIT
+#trap finish EXIT
 
 [ -z "$1" ] && echo "Usage: ./download.sh <query>" && exit 1
 cd tmp
