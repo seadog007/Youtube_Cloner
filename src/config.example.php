@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+define('FB_API', '');
+define('FB_SECRET', '');
+define('FB_PAGE', '');
+
 define('DB_HOST', '');
 define('DB_NAME', '');
 define('DB_USER', '');
