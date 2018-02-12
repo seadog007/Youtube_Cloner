@@ -9,9 +9,9 @@ for a do
 	for b do
 		bv=`gdrive mkdir -p $av $b | sed -e "s/Directory\ //" -e "s/\ created//"`
 		echo '"'$b'": "'$bv'",'
-		[ "$b" == "_" ] && echo '".": "'$av'"'
 		sleep 0.2
 	done
+	echo '".": "'$av'"'
 	echo '},'
 done
 echo '}'
