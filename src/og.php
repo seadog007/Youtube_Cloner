@@ -1,4 +1,4 @@
-<meta property="og:title" content="Kexoradinu" />
+<meta property="og:title" content="Kexor" />
 <meta property="og:type" content="website" />
 <meta property="og:description" content="Searching for removed videos from Youtube?" />
 <meta property="og:image" content="http://seadog007.download/images/logo.jpg" />
