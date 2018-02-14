@@ -17,11 +17,11 @@
                 <div class="two fields">
                     <div class="field">
                         <label>Name</label>
-						<label><?= $_SESSION['name']?></label>
+						<label><?= htmlentities($_SESSION['name']) ?></label>
                     </div>
                     <div class="field">
                         <label>User ID</label>
-						<label><?= $_SESSION['id']?></label>
+						<label><?= $_SESSION['id'] ?></label>
                     </div>
                 </div>
                 <div class="three fields">
