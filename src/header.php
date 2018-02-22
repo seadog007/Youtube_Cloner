@@ -1,7 +1,7 @@
 <?php
 require 'config.php';
 $page = explode("/", $_SERVER["PHP_SELF"])[1];
-if (($page != 'login.php') and $_SESSION['id'] == ''){
+if (($page != 'login.php' and $page != 'usage.php') and $_SESSION['id'] == ''){
 	header('Location: /login.php?ref=' . $page);
 	die();
 }
@@ -235,6 +235,7 @@ th, td
         <div class="ts narrow container">
             <a class="brand item" href="index.php">Kexor</a>
 
+			<a class="item" href="usage.php">System usage</a>
 			<?php
 				if ($_SESSION['logined'] == 1){
 			?>
