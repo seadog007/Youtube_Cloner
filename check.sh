@@ -13,3 +13,5 @@ mysql -u"$MYSQL_USER" -p"$MYSQL_PASS" -D 'youtube_dump' -N -B -e 'SELECT `vid` F
 	done
 
 ./fetch_removed_videos_name.sh
+./fetch_removed_reason.sh
+./error_check.sh

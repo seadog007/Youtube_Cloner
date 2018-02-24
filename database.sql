@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `videos` (
   `last_check` timestamp NULL DEFAULT NULL,
   `disappear_time` timestamp NULL DEFAULT NULL,
   `video_name` text,
+  `removed_reason` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `vid` (`vid`),
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=321517 ;
