@@ -60,7 +60,23 @@ do
 done <<< "$line"
 }
 
-read line
-[ "$line" == "req" ] && req
-[ "$line" == "res" ] && res
+function main(){
+cmd=`echo "$data" | grep -v '\[GNUPG:\]' | head -n1`
+[ "$cmd" == "req" ] && req
+[ "$cmd" == "res" ] && res
+}
 
+function vaild(){
+read vaild_data
+key=`echo $vaild_data | awk '{print $1}'`
+while read vailded_key
+do
+	[ "$key" == "$vailded_key" ] && return 0
+done < keys
+echo "Go away Hacker"
+return 1
+}
+
+read gpg_data
+data=`echo "$gpg_data" | base64 -d | gpg --status-fd 1 --decrypt 2>/dev/null`
+echo "$data" | grep '\[GNUPG:\] VALIDSIG' | tail -n1 | awk '{print $3, $5}' | vaild && main
