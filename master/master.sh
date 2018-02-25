@@ -53,10 +53,7 @@ function res(){
 read line
 while IFS=',' read -ra data
 do
-	for i in "${data[@]}"
-	do
-		echo process "$i"
-	done
+	echo "${data[1]} success uploaded, folder id: ${data[1]}" >> ../run.log
 done <<< "$line"
 }
 
